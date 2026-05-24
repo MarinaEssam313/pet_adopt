@@ -1,1 +1,28 @@
+# Vercel
 .vercel
+
+# .NET Build artifacts & IDE files
+[Bb]in/
+[Oo]bj/
+*.user
+.idea/
+.vscode/
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core Secrets / Configuration (Excluding database credentials)
+backend/appsettings.json
+backend/appsettings.Development.json
+backend/my-published-api/appsettings.json
+
+# Node modules / frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
