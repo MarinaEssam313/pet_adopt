@@ -7,8 +7,16 @@ class SignalRService {
     const token = localStorage.getItem('accessToken');
     if (!token) return;
 
+    const getBackendUrl = () => {
+      const envUrl = import.meta.env.VITE_API_URL;
+      if (!envUrl) return '';
+      return envUrl.endsWith('/') ? envUrl.slice(0, -1) : envUrl;
+    };
+
+    const backendUrl = getBackendUrl();
+
     this.connection = new signalR.HubConnectionBuilder()
-      .withUrl('/hubs/notifications', {
+      .withUrl(`${backendUrl}/hubs/notifications`, {
         accessTokenFactory: () => token
       })
       .withAutomaticReconnect()

@@ -54,8 +54,16 @@ export const NotificationProvider = ({ children }) => {
     const startConnection = async () => {
       try {
         if (!connectionRef.current) {
+          const getBackendUrl = () => {
+            const envUrl = import.meta.env.VITE_API_URL;
+            if (!envUrl) return ''; // fallback to relative for proxy if no env
+            return envUrl.endsWith('/') ? envUrl.slice(0, -1) : envUrl;
+          };
+
+          const backendUrl = getBackendUrl();
+
           const newConnection = new signalR.HubConnectionBuilder()
-            .withUrl('http://localhost:5251/hubs/notifications', {
+            .withUrl(`${backendUrl}/hubs/notifications`, {
               accessTokenFactory: () => localStorage.getItem('accessToken')
             })
             .withAutomaticReconnect()
