@@ -32,7 +32,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
-        policy => policy.WithOrigins("http://localhost:5173", "https://pet-adopt-rho.vercel.app") // أضفنا رابط الـ Vercel بتاعك هنا
+        policy => policy.WithOrigins("http://localhost:5173", "https://pet-adopt-pied.vercel.app")
                         .AllowAnyMethod()
                         .AllowAnyHeader()
                         .AllowCredentials());
