@@ -16,7 +16,7 @@ export default function PetFeedbackReviews({ pet, user, reviews, newReview, setN
               <span key={s} className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>star</span>
             ))}
           </div>
-          <span className="text-sm font-black text-[#00343e]">{reviews.length} Story{reviews.length !== 1 ? 'ies' : ''}</span>
+          <span className="text-sm font-black text-[#00343e]">{reviews.length} Stor{reviews.length !== 1 ? 'ies' : 'y'}</span>
         </div>
       </div>
 
@@ -24,9 +24,9 @@ export default function PetFeedbackReviews({ pet, user, reviews, newReview, setN
         <div className="bg-white p-10 rounded-[3rem] shadow-2xl shadow-cyan-900/5 border border-cyan-100 mb-20">
           <h3 className="text-2xl font-black mb-8 text-[#00343e]">Write your Review about {pet.name}</h3>
           <form onSubmit={submitReview} className="space-y-8">
-            <div className="flex items-center gap-6">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
               <span className="text-sm font-black uppercase tracking-widest text-[#2c6370]">Your Rating</span>
-              <div className="flex gap-2">
+              <div className="flex gap-1 sm:gap-2 flex-wrap">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <button
                     key={star}
@@ -34,7 +34,7 @@ export default function PetFeedbackReviews({ pet, user, reviews, newReview, setN
                     onClick={() => setNewReview({ ...newReview, rating: star })}
                     className={`transition-all hover:scale-125 ${newReview.rating >= star ? 'text-amber-400' : 'text-gray-200'}`}
                   >
-                    <span className="material-symbols-outlined text-[36px]" style={{ fontVariationSettings: newReview.rating >= star ? "'FILL' 1" : "'FILL' 0" }}>
+                    <span className="material-symbols-outlined text-[28px] sm:text-[36px]" style={{ fontVariationSettings: newReview.rating >= star ? "'FILL' 1" : "'FILL' 0" }}>
                       star
                     </span>
                   </button>

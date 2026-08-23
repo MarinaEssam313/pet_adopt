@@ -17,7 +17,7 @@ const steps = [
     step: "03", 
     title: "Sanctuary", 
     desc: "Finalize the paperwork and bring your new friend to their forever home.",
-    icon: "home_app_fill"
+    icon: "home"
   }
 ];
 
